@@ -52,6 +52,7 @@
             this.prevBtn.TabIndex = 1;
             this.prevBtn.Text = "Previous";
             this.prevBtn.UseVisualStyleBackColor = true;
+            this.prevBtn.Click += new System.EventHandler(this.prevBtn_Click);
             // 
             // nextBtn
             // 
@@ -61,6 +62,7 @@
             this.nextBtn.TabIndex = 1;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // writeBtn
             // 

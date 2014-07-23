@@ -16,11 +16,13 @@ namespace BBS_test
     {
         BBSControl bbsControl;
         DataSet dataSet;
+        int pageno = 1;
+        int pagesize = 5;
         public Form1()
         {
             InitializeComponent();
             bbsControl = new BBSControl();
-            dataSet = bbsControl.GetContents(1, 5);
+            dataSet = bbsControl.GetContents(pageno, pagesize);
   
             dataGridView1.DataSource = dataSet.Tables[0];
         }
@@ -32,6 +34,20 @@ namespace BBS_test
             writeForm.Show();
         }
 
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            pageno += 1;
+            dataSet = bbsControl.GetContents(pageno,pagesize);
+            dataGridView1.DataSource = dataSet.Tables[0];
+        }
+
+        private void prevBtn_Click(object sender, EventArgs e)
+        {
+            pageno -= 1;
+            dataSet = bbsControl.GetContents(pageno, pagesize);
+            dataGridView1.DataSource = dataSet.Tables[0];
+        }
+
 
     }
     public class BBSControl
@@ -41,7 +57,7 @@ namespace BBS_test
             DataSet ds = new DataSet();
             string strConn = "Data Source=D306;Initial Catalog=MyTestDB;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
             string sql
-            = "select a.rownum, a.ID, a.USER_NAME, a.SUBJECT, a.DATE from (select row_number() OVER (ORDER BY DATE DESC) as rownum, ID, USER_NAME, SUBJECT, DATE from MyBBS) as a where a.rownum between (@pageno * (@pageno-1)) and ((@pageno * (@pageno-1)) + @pagesize)";
+            = "select a.ID, a.USER_NAME, a.SUBJECT, a.DATE from (select row_number() OVER (ORDER BY DATE DESC) as rownum, ID, USER_NAME, SUBJECT, DATE from MyBBS) as a where a.rownum between (((@pageno-1)*@pagesize)+1) and (@pageno * @pagesize)";
             SqlConnection conn = new SqlConnection(strConn);
             conn.Open();
 
