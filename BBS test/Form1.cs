@@ -28,6 +28,23 @@ namespace BBS_test
             dataSet = bbsControl.GetContents(pageno, pagesize);
 
             dataGridView1.DataSource = dataSet.Tables[0];
+            for (int i = 0 ; i < dataGridView1.Columns.Count; i++)
+            {
+               
+                if (dataGridView1.Columns[i].Name == "rownum")
+                {
+                    dataGridView1.Columns[i].FillWeight = 5;
+                }
+                if (dataGridView1.Columns[i].Name == "USER_NAME")
+                {
+                    dataGridView1.Columns[i].FillWeight = 10;
+                }
+                if (dataGridView1.Columns[i].Name == "DATE")
+                {
+                    dataGridView1.Columns[i].FillWeight = 20;
+                }
+
+            }
         }
 
         private void writeBtn_Click(object sender, EventArgs e)
@@ -108,6 +125,11 @@ namespace BBS_test
                 return reader["CONTENTS"].ToString();
             }
             return "";
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
