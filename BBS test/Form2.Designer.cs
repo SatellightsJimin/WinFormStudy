@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.submitBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.contentBox = new System.Windows.Forms.TextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.subjectBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,27 +46,28 @@
             this.submitBtn.UseVisualStyleBackColor = true;
             this.submitBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // contentBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 67);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(329, 205);
-            this.textBox1.TabIndex = 1;
+            this.contentBox.Location = new System.Drawing.Point(14, 67);
+            this.contentBox.Multiline = true;
+            this.contentBox.Name = "contentBox";
+            this.contentBox.Size = new System.Drawing.Size(329, 205);
+            this.contentBox.TabIndex = 1;
             // 
-            // textBox2
+            // nameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(56, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(101, 21);
-            this.textBox2.TabIndex = 2;
+            this.nameBox.Location = new System.Drawing.Point(56, 13);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(101, 21);
+            this.nameBox.TabIndex = 2;
+
             // 
-            // textBox3
+            // subjectBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(55, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(288, 21);
-            this.textBox3.TabIndex = 2;
+            this.subjectBox.Location = new System.Drawing.Point(55, 40);
+            this.subjectBox.Name = "subjectBox";
+            this.subjectBox.Size = new System.Drawing.Size(288, 21);
+            this.subjectBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -76,7 +77,6 @@
             this.label1.Size = new System.Drawing.Size(37, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "제목 :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -86,7 +86,6 @@
             this.label2.Size = new System.Drawing.Size(37, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "이름 :";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form2
             // 
@@ -95,9 +94,9 @@
             this.ClientSize = new System.Drawing.Size(355, 312);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.subjectBox);
+            this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.contentBox);
             this.Controls.Add(this.submitBtn);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -109,9 +108,9 @@
         #endregion
 
         private System.Windows.Forms.Button submitBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox contentBox;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.TextBox subjectBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
